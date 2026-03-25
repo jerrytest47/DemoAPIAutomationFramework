@@ -1,39 +1,55 @@
 package com.api.tests;
+
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
+import com.api.base.AuthService;
+import com.api.models.request.LoginRequest;
+import com.api.models.response.LoginResponse;
+
 import io.restassured.response.Response;
-
-import static io.restassured.response.Response.*;
-import io.restassured.specification.RequestSpecification;
-
+@Listeners(com.api.listeners.TestListener.class)
 public class LoginAPITest {
-
-	
-@Test
-public void loginTest() {
+	@Test
+	public void loginTest() {
+		LoginRequest loginRequest = new LoginRequest("jerrytest47","jellyFISH208!!");
+		AuthService authService = new AuthService();
+		Response response = authService.login(loginRequest);
 		
+		//troubleshooting response issue below
+		response.then().log().all();
 		
-		Response response = RestAssured.given().baseUri("http://64.227.160.186:8080")
-				.header("Content-Type", "application/json")
-				.body("{\"username\": \"jerrytest47\", \"password\": \"jellyFISH208!!\"}").post("/api/auth/login");
-		System.out.println(response.asPrettyString());
-	
-		Assert.assertEquals(response.getStatusCode(), 200);
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-	
+		LoginResponse loginResponse = response.as(LoginResponse.class);
+		
+		System.out.println(response.prettyPrint());
+		System.out.println(loginResponse.getToken());
+		
+		Assert.assertTrue(loginResponse.getToken() != null);
+		Assert.assertEquals(loginResponse.getEmail(),"jerrytest47@gmail.com");
+		Assert.assertEquals(loginResponse.getId(), 4589);
+		
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
