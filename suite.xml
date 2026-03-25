@@ -3,9 +3,9 @@
 <suite name="API Test Suite" >
   <test thread-count="5" name="API Test">
     <classes>
-      <class name="com.api.tests.LoginAPITestCorrect">
+      <class name="com.api.tests.LoginAPITest">
         
-      </class> <!-- com.api.tests.LoginAPITestCorrect -->
+      </class> <!-- com.api.tests.LoginAPITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
