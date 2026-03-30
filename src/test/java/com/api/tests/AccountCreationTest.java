@@ -18,7 +18,7 @@ public class AccountCreationTest {
 		.email("klerrytest@gmail.com")
 		.firstName("Beremiah")
 		.lastName("Test")
-		.password("shhhDontTell1!")
+		.password("itsASecret1!")
 		.mobileNumber("5555555556").build();
 		
 		AuthService authService = new AuthService();

@@ -17,7 +17,7 @@ public class UpdateProfileTest {
 	public void getProfileInfoTest() {
 		
 		AuthService auth = new AuthService();
-		Response response = auth.login(new LoginRequest("klerry47","shhhDontTell1!"));
+		Response response = auth.login(new LoginRequest("klerry47","wowYouGuessedIt1!"));
 		LoginResponse loginResponse = response.as(LoginResponse.class);		
 		System.out.println(response.asPrettyString());
 
@@ -33,7 +33,7 @@ public class UpdateProfileTest {
 		
 		
 		ProfileRequest profileRequest = new ProfileRequest.Builder()
-					.firstName("Meremiah")
+					.firstName("Jeremiah")
 					.lastName("Mest")
 					.email("merrytest@gmail.com")
 					.mobileNumber("5555555557")

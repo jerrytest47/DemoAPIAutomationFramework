@@ -16,11 +16,11 @@ public class GetProfileRequestTest {
 	public void getProfileInfoTest() {
 		
 		AuthService authService = new AuthService();
-		Response response = authService.login(new LoginRequest("jerrytest47", "jellyFISH208!!"));
+		Response response = authService.login(new LoginRequest("klerry47", "wowYouGuessedIt1!"));
 		
 		LoginResponse loginResponse = response.as(LoginResponse.class);
 		
-		System.out.println(loginResponse.getToken());
+		//System.out.println(loginResponse.getToken());
 		
 		UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
 		Response response1 = userProfileManagementService.getProfile(loginResponse.getToken());	

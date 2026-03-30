@@ -13,7 +13,7 @@ import io.restassured.response.Response;
 public class LoginAPITest {
 	@Test
 	public void loginTest() {
-		LoginRequest loginRequest = new LoginRequest("jerrytest47","jellyFISH208!!");
+		LoginRequest loginRequest = new LoginRequest("klerry47","wowYouGuessedIt1!");
 		AuthService authService = new AuthService();
 		Response response = authService.login(loginRequest);
 		
@@ -26,8 +26,8 @@ public class LoginAPITest {
 		System.out.println(loginResponse.getToken());
 		
 		Assert.assertTrue(loginResponse.getToken() != null);
-		Assert.assertEquals(loginResponse.getEmail(),"jerrytest47@gmail.com");
-		Assert.assertEquals(loginResponse.getId(), 4589);
+		Assert.assertEquals(loginResponse.getEmail(),"merrytest@gmail.com");
+		Assert.assertEquals(loginResponse.getId(), 4733);
 		
 	}
 	
