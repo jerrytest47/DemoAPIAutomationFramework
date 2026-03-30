@@ -9,8 +9,7 @@ public class BankAccountService extends BaseService{
 	private static final String BASE_PATH = "/api/accounts";
 	
 	public Response postAccount(String token,CreateBankAccountRequest payload ) {
-		setAuthToken(token);
-		
+		setAuthToken(token);		
 		return postRequest(payload, BASE_PATH);
 		
 	}
@@ -21,10 +20,10 @@ public class BankAccountService extends BaseService{
 		
 	}
 	
-public Response getAllAccount(String token) {
-	setAuthToken(token);
-	return getRequest(BASE_PATH+ "/user" );
+	public Response getAllAccount(String token) {
+		setAuthToken(token);
+		return getRequest(BASE_PATH+ "/user" );
 	
-}
+	}
 
 }

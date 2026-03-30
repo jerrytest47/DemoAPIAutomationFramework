@@ -9,6 +9,9 @@ public class BankAccountResponse {
 	private String createdAt;
 	private String ownerName;
 	private int balance;
+	
+	public BankAccountResponse() {}
+	
 	public String getAccountNumber() {
 		return accountNumber;
 	}

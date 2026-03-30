@@ -18,11 +18,10 @@ public class LoginAPITest {
 		Response response = authService.login(loginRequest);
 		
 		//troubleshooting response issue below
-		response.then().log().all();
+		//response.then().log().all();
 		
 		LoginResponse loginResponse = response.as(LoginResponse.class);
 		
-		System.out.println(response.prettyPrint());
 		System.out.println(loginResponse.getToken());
 		
 		Assert.assertTrue(loginResponse.getToken() != null);
