@@ -5,6 +5,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.base.AuthService;
+import com.api.factory.LoginRequestFactory;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
 import io.restassured.response.Response;
@@ -15,7 +16,10 @@ public class LoginAPITest {
 	@Test
 	public void loginTest() {
 		
-		LoginRequest loginRequest = new LoginRequest("klerry47","wowYouGuessedIt1!");
+		
+		
+		LoginRequest loginRequest = LoginRequestFactory.validLogin();
+				
 		AuthService authService = new AuthService();
 		Response response = authService.login(loginRequest);
 	
