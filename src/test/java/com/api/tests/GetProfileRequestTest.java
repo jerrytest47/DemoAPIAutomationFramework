@@ -2,11 +2,11 @@ package com.api.tests;
 
 import org.testng.annotations.Test;
 
-import com.api.base.AuthService;
-import com.api.base.UserProfileManagementService;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
 import com.api.models.response.UserProfileResponse;
+import com.api.services.AuthService;
+import com.api.services.UserProfileManagementService;
 
 import io.restassured.response.Response;
 

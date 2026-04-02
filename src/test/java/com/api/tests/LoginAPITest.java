@@ -4,24 +4,26 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.api.base.AuthService;
+import com.api.dataproviders.AuthDataProvider;
 import com.api.factory.LoginRequestFactory;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
+import com.api.services.AuthService;
+
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
 
 @Listeners(com.api.listeners.TestListener.class)
 public class LoginAPITest {
-	@Test
-	public void loginTest() {
+	@Test(dataProvider = "loginData", dataProviderClass = AuthDataProvider.class)
+	public void loginTest(String scenario, LoginRequest request, int expectedStatusCode) {
 		
+        System.out.println("Running scenario: " + scenario);
 		
-		
-		LoginRequest loginRequest = LoginRequestFactory.validLogin();
+		//LoginRequest loginRequest = LoginRequestFactory.validLogin();
 				
 		AuthService authService = new AuthService();
-		Response response = authService.login(loginRequest);
+		Response response = authService.login(request);
 	
 		LoginResponse loginResponse = response.as(LoginResponse.class);
 		
@@ -40,7 +42,7 @@ public class LoginAPITest {
 
 		
 		//username assertions
-		Assert.assertEquals(loginResponse.getUsername(), loginRequest.getUsername());
+		Assert.assertEquals(loginResponse.getUsername(), request.getUsername());
 		
 		//email assertions
 		String email = response.jsonPath().getString("email");
@@ -58,11 +60,17 @@ public class LoginAPITest {
           .body("email", equalTo("merrytest@gmail.com"))
           .body("roles", hasItem("ROLE_USER"));
 		
-		
+		  response.then().statusCode(expectedStatusCode);
+
+	        if (expectedStatusCode == 200) {
+	            loginResponse = response.as(LoginResponse.class);
+	            Assert.assertNotNull(loginResponse.getToken());
+	            Assert.assertEquals(loginResponse.getType(), "Bearer");
 		
 	}
 	
-}
+	}
+	}
 
 
 

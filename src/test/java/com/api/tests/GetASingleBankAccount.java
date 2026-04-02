@@ -4,11 +4,11 @@ package com.api.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.api.base.AuthService;
-import com.api.base.BankAccountService;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.BankAccountResponse;
 import com.api.models.response.LoginResponse;
+import com.api.services.AuthService;
+import com.api.services.BankAccountService;
 
 import io.restassured.response.Response;
 

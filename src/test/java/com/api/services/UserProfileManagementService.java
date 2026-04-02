@@ -1,5 +1,6 @@
-package com.api.base;
+package com.api.services;
 
+import com.api.base.BaseService;
 import com.api.models.request.ProfileRequest;
 import com.api.models.request.UpdatePasswordRequest;
 

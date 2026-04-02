@@ -3,16 +3,17 @@ package com.api.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.api.base.AuthService;
-import com.api.base.BankAccountService;
+import com.api.dataproviders.BankAccountDataProvider;
 import com.api.models.request.CreateBankAccountRequest;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
+import com.api.services.AuthService;
+import com.api.services.BankAccountService;
 
 import io.restassured.response.Response;
 
 public class CreateBankAccountTest {
-	@Test
+	@Test(dataProvider = "createBankAccountData", dataProviderClass = BankAccountDataProvider.class)
 	public void createBankAccount() {
 		
 		CreateBankAccountRequest createBankAccountRequest = new CreateBankAccountRequest("SALARY", "Main Branch");
