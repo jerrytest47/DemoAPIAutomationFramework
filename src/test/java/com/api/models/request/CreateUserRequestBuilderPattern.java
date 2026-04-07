@@ -1,8 +1,8 @@
 package com.api.models.request;
 
-public class SignUpRequestBuilderPattern {
+public class CreateUserRequestBuilderPattern {
 	
-	public SignUpRequestBuilderPattern() {}
+	public CreateUserRequestBuilderPattern() {}
 	
 private String username;
 private String password;
@@ -11,7 +11,7 @@ private String firstName;
 private String lastName;
 private String mobileNumber;
 
-public SignUpRequestBuilderPattern(String username, String password, String email, String firstName, String lastName,
+public CreateUserRequestBuilderPattern(String username, String password, String email, String firstName, String lastName,
 		String mobileNumber) {
 	super();
 	this.username = username;
@@ -102,10 +102,10 @@ public static class Builder{
 		return this;
 	}
 	
-	public SignUpRequestBuilderPattern build() {
-		SignUpRequestBuilderPattern signUpRequestBuilderPattern = new SignUpRequestBuilderPattern(username, password, email, firstName, lastName, mobileNumber);
+	public CreateUserRequestBuilderPattern build() {
+		CreateUserRequestBuilderPattern createUserRequestBuilderPattern = new CreateUserRequestBuilderPattern(username, password, email, firstName, lastName, mobileNumber);
 	
-		return signUpRequestBuilderPattern;
+		return createUserRequestBuilderPattern;
 	}
 }
 }

@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.api.models.request.LoginRequest;
-import com.api.models.request.SignUpRequestBuilderPattern;
+import com.api.models.request.CreateUserRequestBuilderPattern;
 import com.api.services.AuthService;
 
 import io.restassured.response.Response;
@@ -15,7 +15,7 @@ public class AccountCreationTest {
 	
 	public void createAccountTest() {
 		
-		SignUpRequestBuilderPattern signUpRequestBuilderPattern = new SignUpRequestBuilderPattern.Builder().username("jerrytest1")
+		CreateUserRequestBuilderPattern createUserRequestBuilderPattern = new CreateUserRequestBuilderPattern.Builder().username("jerrytest1")
 		.email("jerrytest1@gmail.com")
 		.firstName("Jeremiah")
 		.lastName("Test")
@@ -23,7 +23,7 @@ public class AccountCreationTest {
 		.mobileNumber("5555555556").build();
 		
 		AuthService authService = new AuthService();
-		Response response = authService.signUp(signUpRequestBuilderPattern);
+		Response response = authService.signUp(createUserRequestBuilderPattern);
 		System.out.println(response.asPrettyString());
 		Assert.assertEquals(response.asString().trim(), "User registered successfully!");
 		

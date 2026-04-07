@@ -5,7 +5,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.dataproviders.AuthDataProvider;
-import com.api.factory.LoginRequestFactory;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
 import com.api.services.AuthService;
@@ -19,9 +18,7 @@ public class LoginAPITest {
 	public void loginTest(String scenario, LoginRequest request, int expectedStatusCode) {
 		
         System.out.println("Running scenario: " + scenario);
-		
-		//LoginRequest loginRequest = LoginRequestFactory.validLogin();
-				
+						
 		AuthService authService = new AuthService();
 		Response response = authService.login(request);
 	
