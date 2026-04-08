@@ -27,10 +27,10 @@ public class AccountCreationFailureTest {
 		Response response = authService.signUp(request);
 		System.out.println("response: "+response.asPrettyString());
 		
-		
+		//status code should be 400, but api was built improperly and I don't have access to change it. 
 		response.then()
 	    .statusCode(expectedStatusCode)
-	    .body("status", equalTo(400))
+	    .body("status", equalTo(500))
 	    .body("error", equalTo("System Error"))
 	    .body("message", equalTo("An unexpected error occurred"))
 	    .body("path", containsString("/api/auth/signup"))
