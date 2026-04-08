@@ -50,7 +50,7 @@ public class LoginAPITest {
 		//Role assertions
 		
 		  response.then()
-          .statusCode(200)
+          .statusCode(expectedStatusCode)
           .time(lessThan(2000L))
           .body("type", equalTo("Bearer"))
           .body("username", equalTo("klerry47"))
