@@ -3,8 +3,12 @@
 <suite name="API Test Suite" >
   <test thread-count="5" name="API Test">
     <classes>
-      <class name="com.api.tests.LoginAPITest">
-        
+      <class name="com.api.tests.LoginAPITest"></class>
+       <class name="com.api.tests.LoginFailureAPITest"></class>
+       <class name="com.api.tests.LoginFailureMissingDataAPITest"></class>
+       <class name="com.api.tests.AccountCreationTest"> </class>
+       <class name="com.api.tests.AccountCreationFailureTest"> 
+
       </class> <!-- com.api.tests.LoginAPITest -->
     </classes>
   </test> <!-- Default test(failed) -->
